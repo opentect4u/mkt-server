@@ -7,11 +7,16 @@ const router = require('./routes/router');
 
 const port = process.env.PORT || 3001;
 
+var whitelist = ['http://synergicportal.in', 'http://localhost:4200']
 const corsOptions = {
-    origin: 'http://synergicportal.in/mkt',
-    optionsSuccessStatus: 200
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
-
 require('./config/passport')(passport);
 
 app.use(cors(corsOptions));
