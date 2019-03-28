@@ -25,6 +25,14 @@ router.get('/dependencies', (req, res) => {
 
 });
 
+router.get('/report', (req, res) => {
+
+    Orders.getAll('td_project_details', (data) => {
+        res.send(data);
+    });
+
+});
+
 router.get('/getorder/:id', (req, res) => {
 
     data = {
@@ -52,8 +60,8 @@ router.post('/details', (req, res) => {
         order_value: req.body.orderValue ,
         tax: req.body.tax ,
         payment_terms: req.body.paymentTerms ,
-        monthly_rental: req.body.monthlyRental ,
         payment_status: req.body.paymentStatus,
+        proposed_instl_dt: req.body.proposedInstlDt,
         sales_person:req.body.salePerson , 
         installed_by: req.body.installedBy ,
         installation_dt: req.body.installationDate ,
@@ -83,8 +91,8 @@ router.put('/editdetails/:id', (req, res) => {
         order_value: req.body.orderValue ,
         tax: req.body.tax ,
         payment_terms: req.body.paymentTerms ,
-        monthly_rental: req.body.monthlyRental ,
         payment_status: req.body.paymentStatus,
+        proposed_instl_dt: req.body.proposedInstlDt,
         sales_person:req.body.salePerson , 
         installed_by: req.body.installedBy ,
         installation_dt: req.body.installationDate ,

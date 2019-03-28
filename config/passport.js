@@ -9,7 +9,7 @@ module.exports = function(passport) {
     
         function(username, password, done) {
       
-          let sql = `select user_id, user_name, user_status, password
+          let sql = `select user_id, user_name, user_status, user_type, password
                      from md_users where user_id = ?`;
       
           db.query(sql, [username],(err, result) => {
