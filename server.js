@@ -8,7 +8,7 @@ const router = require('./routes/router');
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin: 'http://synergicportal.in/mkt',
+    origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
 }
 
