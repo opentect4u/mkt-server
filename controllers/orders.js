@@ -27,7 +27,7 @@ router.get('/dependencies', (req, res) => {
 
 router.get('/report', (req, res) => {
 
-    Orders.getAll('td_project_details', (data) => {
+    Orders.getAllOrders((data) => {
         res.send(data);
     });
 
