@@ -94,14 +94,13 @@ router.put('/editdetails/:id', (req, res) => {
         payment_terms: req.body.paymentTerms ,
         monthly_rental: req.body.monthlyRental ,
         payment_status: req.body.paymentStatus,
-        proposed_instl_dt: req.body.proposedInstlDt,
-        sales_person:req.body.salePerson , 
+        proposed_instl_dt: req.body.proposedInstlDt, 
         installed_by: req.body.installedBy ,
         installation_dt: req.body.installationDate ,
         sss_remarks: req.body.sssRemarks ,
         cust_remarks: req.body.customerRemarks ,
-        created_by: req.data.user.user_name,
-        created_dt: common.formatDate(new Date()),
+        modified_by: req.data.user.user_name,
+        modified_dt: common.formatDate(new Date()),
     }
     Orders.editDtls(data, req.params.id ,() => {
         res.send({msg: 'success'});

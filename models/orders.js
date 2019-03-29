@@ -135,7 +135,7 @@ orders.addDtls = (data, cb) => {
                     data.monthly_rental,
                     data.payment_status,
                     data.proposed_instl_dt,
-                    data.sales_person,
+                    data.created_by,
                     data.installed_by,
                     data.installation_dt,
                     data.sss_remarks,
@@ -173,8 +173,8 @@ orders.editDtls = (data, id, cb) => {
                                          installation_dt = ?,
                                          sss_remarks = ?,
                                          cust_remarks = ?,
-                                         created_by = ?,
-                                         created_dt = ?
+                                         modified_by = ?,
+                                         modified_dt = ?
                 WHERE id = ${id}`;
 
     db.query(sql, [ data.project_name,
@@ -192,13 +192,13 @@ orders.editDtls = (data, id, cb) => {
                     data.monthly_rental,
                     data.payment_status,
                     data.proposed_instl_dt,
-                    data.sales_person,
+                    data.modified_by,
                     data.installed_by,
                     data.installation_dt,
                     data.sss_remarks,
                     data.cust_remarks,
-                    data.created_by,
-                    data.created_dt
+                    data.modified_by,
+                    data.modified_dt
     ], (err, result) => {
 
         if (err) throw err;
