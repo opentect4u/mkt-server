@@ -1,4 +1,7 @@
 # dependencies
 /node_modules
-/config/database
+
+#database
+config/database.js
+
 package-lock.json
