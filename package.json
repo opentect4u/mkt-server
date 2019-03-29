@@ -4,11 +4,14 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "*",
+    "bcryptjs": "^2.4.3",
     "body-parser": "*",
     "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
     "mysql": "*",
-    "jsonwebtoken": "*"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
