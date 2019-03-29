@@ -20,7 +20,7 @@ users.getUsers = (cb) => {
 
 users.getUser = (userId, cb) => {
 
-    let sql = `SELECT user_id, user_name, user_status FROM
+    let sql = `SELECT user_id, user_name, user_status, user_type FROM
                md_users WHERE emp_id = ?`;
 
     db.query(sql, [userId], (err, result) => {

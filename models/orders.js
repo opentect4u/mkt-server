@@ -57,6 +57,7 @@ orders.getAllOrders = (cb) => {
                       t.order_value,
                       t.tax,
                       t.payment_terms,
+                      t.monthly_rental,
                       t.payment_status,
                       t.proposed_instl_dt,
                       t.sales_person,
@@ -106,6 +107,7 @@ orders.addDtls = (data, cb) => {
                                                 order_value,
                                                 tax,
                                                 payment_terms,
+                                                monthly_rental,
                                                 payment_status,
                                                 proposed_instl_dt,
                                                 sales_person,
@@ -116,7 +118,7 @@ orders.addDtls = (data, cb) => {
                                                 created_by,
                                                 created_dt
                                             )
-                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
     db.query(sql, [ data.project_name,
                     data.project_type,
@@ -130,6 +132,7 @@ orders.addDtls = (data, cb) => {
                     data.order_value,
                     data.tax,
                     data.payment_terms,
+                    data.monthly_rental,
                     data.payment_status,
                     data.proposed_instl_dt,
                     data.sales_person,
@@ -162,6 +165,7 @@ orders.editDtls = (data, id, cb) => {
                                          order_value = ?,
                                          tax = ?,
                                          payment_terms = ?,
+                                         monthly_rental = ?,
                                          payment_status = ?,
                                          proposed_instl_dt = ?,
                                          sales_person = ?,
@@ -185,6 +189,7 @@ orders.editDtls = (data, id, cb) => {
                     data.order_value,
                     data.tax,
                     data.payment_terms,
+                    data.monthly_rental,
                     data.payment_status,
                     data.proposed_instl_dt,
                     data.sales_person,
