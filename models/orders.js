@@ -45,7 +45,7 @@ orders.getOrder = (data, cb) => {
 
 orders.getAllOrders = (cb) => {
 
-    /* let sql = `SELECT t.id,
+    let sql = `SELECT t.id,
                       t.project_name,
                       pt.type_desc project_type,
                       t.contact_no,
@@ -54,9 +54,9 @@ orders.getAllOrders = (cb) => {
                       t.*
                 FROM td_project_details t, md_district dst, md_project_type pt
                 WHERE t.project_type = pt.type_cd
-                AND t.dist = dst.district_code`; */
+                AND t.dist = dst.district_code`;
 
-    db.query('sql', (err, result) => {
+    db.query(sql, (err, result) => {
 
         if (err) throw err;
 
