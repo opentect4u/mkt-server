@@ -108,7 +108,7 @@ users.insertUser = (data, cb) => {
 
     db.query(sql, [data.userId, 
                    data.empId,
-                   data.password,
+                   salt,
                    data.name,
                    data.status,
                    data.createdBy,
