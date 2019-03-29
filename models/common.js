@@ -27,7 +27,7 @@ exportObj.verifyToken = (req, res, next) => {
 
         req.token = beare[1];
 
-        jwt.verify(req.token, 'loggedin', (err, data) => {
+        jwt.verify(req.token, 'mktserver', (err, data) => {
             if (err) {
                 res.json({ token: false} );
             }

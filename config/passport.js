@@ -21,7 +21,7 @@ module.exports = function(passport) {
                 
                 delete result[0].password;
 
-                jwt.sign({user: result[0]}, 'loggedin', (err, token) => {
+                jwt.sign({user: result[0]}, 'mktserver', (err, token) => {
                     if (err) throw err;
                     return done(null, token);
                 });
