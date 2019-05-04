@@ -7,7 +7,7 @@ const router = require('./routes/router');
 
 const port = process.env.PORT || 3001;
 
-var whitelist = ['http://synergicportal.in', 'http://www.synergicportal.in', 'http://localhost:4200']
+var whitelist = ['http://www.synergicportal.in', 'http://localhost:4200']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
