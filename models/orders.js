@@ -113,12 +113,13 @@ orders.addDtls = (data, cb) => {
                                                 sales_person,
                                                 installed_by,
                                                 installation_dt,
+                                                online_dt,
                                                 sss_remarks,
                                                 cust_remarks,
                                                 created_by,
                                                 created_dt
                                             )
-                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
     db.query(sql, [ data.project_name,
                     data.project_type,
@@ -138,6 +139,7 @@ orders.addDtls = (data, cb) => {
                     data.created_by,
                     data.installed_by,
                     data.installation_dt,
+                    data.online_dt,
                     data.sss_remarks,
                     data.cust_remarks,
                     data.created_by,
@@ -171,6 +173,7 @@ orders.editDtls = (data, id, cb) => {
                                          sales_person = ?,
                                          installed_by = ?,
                                          installation_dt = ?,
+                                         online_dt = ?,
                                          sss_remarks = ?,
                                          cust_remarks = ?,
                                          modified_by = ?,
@@ -195,6 +198,7 @@ orders.editDtls = (data, id, cb) => {
                     data.modified_by,
                     data.installed_by,
                     data.installation_dt,
+                    data.online_dt,
                     data.sss_remarks,
                     data.cust_remarks,
                     data.modified_by,
