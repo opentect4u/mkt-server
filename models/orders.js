@@ -212,4 +212,44 @@ orders.editDtls = (data, id, cb) => {
     });
 }
 
+orders.filter = (data, cb) => {
+
+    let sql = `SELECT t.id,
+                      t.project_name,
+                      pt.type_desc as project_type,
+                      t.contact_no,
+                      t.designation,
+                      dst.district_name as dist,
+                      t.block,
+                      t.order_dt,
+                      t.order_dtls,
+                      t.order_value,
+                      t.tax,
+                      t.payment_terms,
+                      t.monthly_rental,
+                      t.payment_status,
+                      t.proposed_instl_dt,
+                      t.sales_person,
+                      t.installed_by,
+                      t.installation_dt,
+                      t.sss_remarks,
+                      t.cust_remarks
+              FROM td_project_details t, md_district dst, md_project_type pt
+              WHERE t.project_type = pt.type_cd
+              AND t.dist = dst.district_code
+              ${(data.fromDate && data.toDate)? "AND t.order_dt >= '"+data.fromDate+"' AND t.order_dt <= '"+data.toDate+"'":''}
+              ${(data.prjectType != '')? "AND t.project_type = "+data.prjectType+"":''}
+              ${(data.district != '')? "AND t.dist = "+data.district+"":''}
+              ${(data.employee != '')? "AND t.sales_person = '"+data.employee+"'":''}
+              `;
+    
+        let a = db.query(sql, (err, result) => {
+    
+            if (err) throw err;
+    
+            cb(result);
+    
+        });
+}
+
 module.exports = orders;

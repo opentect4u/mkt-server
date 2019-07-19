@@ -110,4 +110,9 @@ router.put('/editdetails/:id', (req, res) => {
     
 });
 
+router.post('/filter', (req, res) => {
+    Orders.filter(req.body ,(data) => {
+        res.send(data);
+    });
+});
 module.exports = router;
